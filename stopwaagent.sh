@@ -1,7 +1,6 @@
 #!/bin/bash
 
-systemctl status waagent | grep 'active (running)' > /dev/null 2>&1
-if [ $? != 0 ]
+if service waagent status | grep 'active (running)'
 then
-sudo systemctl stop waagent> /dev/null
+sudo service waagent stop 
 fi
