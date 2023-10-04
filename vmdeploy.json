@@ -290,6 +290,28 @@
         ]
       },
       {
+            "name": "customScript",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2023-03-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', concat(parameters('vmName')))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.1",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+
+                },
+                "protectedSettings": {
+                    "fileUris": ["https://raw.githubusercontent.com/johnacosta23/reprostest/main/fstab.sh"],
+                    "commandToExecute": "sh fstab.sh"
+                }
+            }
+        },
+      {
         "condition": "[and(equals(parameters('securityType'), 'TrustedLaunch'), and(equals(variables('securityProfileJson').uefiSettings.secureBootEnabled, true()), equals(variables('securityProfileJson').uefiSettings.vTpmEnabled, true())))]",
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "apiVersion": "2022-03-01",
@@ -313,29 +335,7 @@
         "dependsOn": [
           "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         ]
-      },
-                     {
-            "name": "customScript1",
-            "type": "extensions",
-            "apiVersion": "2019-03-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/extensions/', concat(parameters('vmName')))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Azure.Extensions",
-                "type": "CustomScript",
-                "typeHandlerVersion": "2.1",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-
-                },
-                "protectedSettings": {
-                    "fileUris": ["https://raw.githubusercontent.com/johnacosta23/reprostest/main/fstab.sh"],
-                    "commandToExecute": "sh fstab.sh"
-                }
-            }
-        }
+      }
     ],
     "outputs": {
       "adminUsername": {
