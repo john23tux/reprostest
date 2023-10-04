@@ -181,9 +181,6 @@
                     "fileUris": [
                         "https://github.com/johnacosta23/reprostest/blob/main/fstab.sh"
                     ]
-                },
-                "protectedSettings": {
-                    "commandToExecute": "sh fstab.sh"
                 }
             }
         }
