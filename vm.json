@@ -130,8 +130,8 @@
                 },
                 "osProfile": {
                     "computerName": "ubuntuVM1",
-                    "adminUsername": "adminUsername",
-                    "adminPassword": "adminPassword"
+                    "adminUsername": "jacostapoved",
+                    "adminPassword": "Alex.7832413"
                 },
                 "storageProfile": {
                     "imageReference": {
