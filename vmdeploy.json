@@ -149,12 +149,6 @@
         },
         "securityType": "[parameters('securityType')]"
       },
-      "extensionName": "GuestAttestation",
-      "extensionPublisher": "Microsoft.Azure.Security.LinuxAttestation",
-      "extensionVersion": "1.0",
-      "maaTenantName": "GuestAttestation",
-      "maaEndpoint": "[substring('emptystring', 0, 0)]"
-    },
     "resources": [
       {
         "type": "Microsoft.Network/networkInterfaces",
@@ -290,38 +284,11 @@
         ]
       },
       {
-        "condition": "[and(equals(parameters('securityType'), 'TrustedLaunch'), and(equals(variables('securityProfileJson').uefiSettings.secureBootEnabled, true()), equals(variables('securityProfileJson').uefiSettings.vTpmEnabled, true())))]",
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "apiVersion": "2022-03-01",
-        "name": "[format('{0}/{1}', parameters('vmName'), variables('extensionName'))]",
+        "name": "script1",
         "location": "[parameters('location')]",
         "properties": {
-          "publisher": "[variables('extensionPublisher')]",
-          "type": "[variables('extensionName')]",
-          "typeHandlerVersion": "[variables('extensionVersion')]",
-          "autoUpgradeMinorVersion": true,
-          "enableAutomaticUpgrade": true,
-          "settings": {
-            "AttestationConfig": {
-              "MaaSettings": {
-                "maaEndpoint": "[variables('maaEndpoint')]",
-                "maaTenantName": "[variables('maaTenantName')]"
-              }
-            }
-          }
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-        ]
-      },
-            {
-            "name": "customScript1",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "apiVersion": "2023-03-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-            ],
             "properties": {
                 "publisher": "Microsoft.Azure.Extensions",
                 "type": "CustomScript",
@@ -336,19 +303,8 @@
                 }
             }
         }
-    ],
-    "outputs": {
-      "adminUsername": {
-        "type": "string",
-        "value": "[parameters('adminUsername')]"
-      },
-      "hostname": {
-        "type": "string",
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName')), '2021-05-01').dnsSettings.fqdn]"
-      },
-      "sshCommand": {
-        "type": "string",
-        "value": "[format('ssh {0}@{1}', parameters('adminUsername'), reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName')), '2021-05-01').dnsSettings.fqdn)]"
       }
-    }
+    ],
+    "outputs": {}
+  }
   }
