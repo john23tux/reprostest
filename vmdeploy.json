@@ -316,11 +316,11 @@
       },
                      {
             "name": "customScript1",
-            "type": "Microsoft.Compute/virtualMachines/Extensions",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2023-03-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+                "[concat('Microsoft.Compute/virtualMachines/', concat(parameters('vmName'),copyindex()))]"
             ],
             "properties": {
                 "publisher": "Microsoft.Azure.Extensions",
