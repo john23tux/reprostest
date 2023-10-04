@@ -166,9 +166,6 @@
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2023-03-01",
             "location": "[resourceGroup().location]",
-            "tags": {
-                "displayName": "customScript1 for Linux VM"
-            },
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', 'ubuntuVM1')]"
             ],
@@ -178,11 +175,11 @@
                 "typeHandlerVersion": "2.1",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                },
                 "fileUris": [
                         "https://github.com/johnacosta23/reprostest/blob/main/fstab.sh"
                     ],
                     "commandToExecute": "sh fstab.sh"
+            }
             }
         }
     ],
