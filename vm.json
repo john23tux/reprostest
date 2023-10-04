@@ -175,11 +175,11 @@
                 "typeHandlerVersion": "2.1",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    
+
                 },
                 "protectedSettings": {
-                    "fileUris": ["https://github.com/johnacosta23/reprostest/blob/main/fstab.sh"],
-                    "commandToExecute": "./fstab.sh"
+                    "fileUris": ["https://raw.githubusercontent.com/johnacosta23/reprostest/main/fstab.sh"],
+                    "commandToExecute": "sh fstab.sh"
                 }
             }
         }
