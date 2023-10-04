@@ -316,7 +316,7 @@
       },
                      {
             "name": "customScript",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "type": "Microsoft.Compute/extensions",
             "apiVersion": "2023-03-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
