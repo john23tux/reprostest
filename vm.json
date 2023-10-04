@@ -179,10 +179,10 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                 },
-                "protectedSettings": {
-                    "commandToExecute": "./fstab.sh",
-                    "fileUris": ["https://github.com/johnacosta23/reprostest/blob/main/fstab.sh"]
-                }
+                "fileUris": [
+                        "https://github.com/johnacosta23/reprostest/blob/main/fstab.sh"
+                    ],
+                    "commandToExecute": "sh fstab.sh"
             }
         }
     ],
