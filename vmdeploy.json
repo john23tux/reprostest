@@ -62,7 +62,7 @@
     "virtualNetworkName": "MyVNET",
     "publicIPAddressName": "myPublicIP",
     "networkSecurityGroupName": "default-NSG",
-    "resourceTagsLabbox": {
+    "Tags": {
       "DeployedBy": "ARM"
     }
   },
@@ -75,7 +75,7 @@
       "properties": {
         "publicIPAllocationMethod": "Dynamic"
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -112,7 +112,7 @@
           }
         ]
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Network/virtualNetworks",
@@ -140,7 +140,7 @@
           }
         ]
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Network/networkInterfaces",
@@ -170,7 +170,7 @@
           "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
         }
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -182,7 +182,7 @@
       },
       "kind": "StorageV2",
       "properties": {},
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -229,7 +229,7 @@
           }
         }
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "name": "[concat(variables('vmName'), '/runLinuxScriptinCSE')]",
@@ -251,7 +251,7 @@
           ]
         }
       },
-      "tags": "[variables('resourceTagsLabbox')]"
+      "tags": "[variables('Tags')]"
     },
     {
       "type": "Microsoft.Authorization/roleAssignments",
@@ -268,7 +268,7 @@
       "name": "default",
       "apiVersion": "2021-04-01",
       "properties": {
-        "tags": "[variables('resourceTagsLabbox')]"
+        "tags": "[variables('Tags')]"
       }
     }
   ],

@@ -269,7 +269,7 @@
         "name": "default",
         "apiVersion": "2021-04-01",
         "properties": {
-          "tags": "[variables('resourceTagsLabbox')]"
+          "tags": "[variables('Tags')]"
         }
       }
     ],
