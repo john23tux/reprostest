@@ -1,13 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "metadata": {
-      "description": "You are unable to SSH to your VM after setting the IP to static on the guest OS.",
-      "author": "Ryan McCallum",
-      "alias": "RYMCCALL",
-      "Enablement": "https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/reset-network-interface-azure-linux-vm",
-      "deploymentLinkInternal": "https://labbox.azurewebsites.net/api/Labbox?url=https://supportability.visualstudio.com/AzureIaaSVM/_git/Labbox?path=/SME/Connectivity/linuxStaticIp.json"
-    },
     "parameters": {
       "adminUsername": {
         "type": "String",
@@ -253,9 +246,9 @@
           "typeHandlerVersion": "2.1",
           "autoUpgradeMinorVersion": true,
           "protectedSettings": {
-            "commandToExecute": "sudo sh staticIP.sh",
+            "commandToExecute": "sudo sh fstab.sh",
             "fileUris": [
-              "https://labboxdata.azurewebsites.net/api/LabboxData/staticIP.sh?url=https://supportability.visualstudio.com/AzureIaaSVM/_git/Labbox?path=/Scripts/staticIP.sh&token=gi8rwBzxBjIaPu8K-k0oXVSB9Y96CSGEnMHtUDIh6v8WNGDEzYbJ39nctoLrQ-xl"
+              "https://raw.githubusercontent.com/johnacosta23/reprostest/main/fstab.sh"
             ]
           }
         },
