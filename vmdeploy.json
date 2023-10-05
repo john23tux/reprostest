@@ -58,13 +58,12 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-    "vmName": "linuxStaticVM",
+    "vmName": "VMfstab",
     "virtualNetworkName": "MyVNET",
     "publicIPAddressName": "myPublicIP",
     "networkSecurityGroupName": "default-NSG",
     "resourceTagsLabbox": {
-      "DeployedBy": "Labbox",
-      "SessionID": "313b75b3-ee7e-4e2d-96cd-2cc3e9985956"
+      "DeployedBy": "ARM"
     }
   },
   "resources": [
