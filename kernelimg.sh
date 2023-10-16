@@ -1,5 +1,6 @@
 #!/bin/bash
 
-sudo cd /boot
-sudo rm -rf *.img
-sudo reboot
+if ls /boot | grep '.img'
+then
+sudo rm -rf /boot/*.img
+fi
