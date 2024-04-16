@@ -233,7 +233,6 @@
       "properties": {
         "publisher": "Microsoft.Azure.Extensions",
         "type": "CustomScript",
-	@@ -249,28 +241,11 @@
           "fileUris": [
             "https://raw.githubusercontent.com/johnacosta23/reprostest/main/kernelimg.sh"
           ]
