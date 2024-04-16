@@ -240,7 +240,6 @@
           "commandToExecute": "sudo sh kernelimg.sh",
           "fileUris": [
             "https://raw.githubusercontent.com/johnacosta23/reprostest/main/kernelimg.sh"
-          ]
 		}
 			}
 	],
