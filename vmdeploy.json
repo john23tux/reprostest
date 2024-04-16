@@ -231,17 +231,14 @@
 			"dependsOn": [
 				"[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
 			],
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.1",
-        "autoUpgradeMinorVersion": true,
-        "protectedSettings": {
-          "commandToExecute": "sudo sh kernelimg.sh",
-          "fileUris": [
+			"properties": {
+				"commandToExecute": "sudo sh kernelimg.sh",
+				"fileUris": [
             "https://raw.githubusercontent.com/johnacosta23/reprostest/main/kernelimg.sh"
-		}
+          ]
+				},
+				"timeoutInSeconds": 60
 			}
+		}
 	],
-	"outputs": {}
 }
